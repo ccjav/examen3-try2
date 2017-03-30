@@ -1,10 +1,38 @@
-<%= form_for @booking do |booking| %>
-	<%= booking.fields_for :user do |passenger| %>
-		<%= passenger.label :name %>
-		<%= passenger.text_field :name, class: 'form-control' %>
-		<%= passenger.label :email %>
-		<%= passenger.text_field :email, class: 'form-control' %>
-	<% end %>
-		<%= hidden_field :flight_id, @flight.id %>
-	<%= booking.submit "Confirm", class: 'form-control btn btn-primary', id: 'confirm-btn' %>
-<% end %>
+<div class="mdl-layout-spacer"></div>
+<div class="mdl-cell mdl-cell--4-col">
+  <% counter = 1 %>
+  <% if @booking %>
+    <%= form_for @booking do |booking| %>
+    	<%= booking.fields_for :user do |passenger| %>
+        <div class="mdl-card mdl-shadow--2dp shi-passenger-form">
+          <div class="mdl-card__title">
+            <h1 class="mdl-card__title-text">Pasajero <%= counter %></h1>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield">
+            <%= passenger.text_field :name, class: "mdl-textfield__input" %>
+            <%= passenger.label :nombre, class: "mdl-textfield__label" %>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield">
+            <%= passenger.text_field :email, class: "mdl-textfield__input" %>
+            <%= passenger.label :correo, class: "mdl-textfield__label" %>
+          </div>    
+        </div>
+        <% counter += 1 %>
+    	<% end %>
+    	<%= hidden_field :flight_id, @flight.id %>
+      <%= hidden_field_tag :passengers, params[:passengers] %>
+      <div class="mdl-card__actions">
+        <%= booking.submit "Reserva", class: "mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect", id: 'confirm-btn' %>
+      </div>
+    <% end %>
+  <% else %>
+    <%= form_tag new_booking_path(@flight.id), :method => 'get' do |f| %>
+      <p>
+        <%= text_field_tag :passengers %>
+        <%= hidden_field :flight_id, @flight.id %>
+        <%= submit_tag "Reserva", class: "btn btn-lg btn-primary" %>
+      </p>
+    <% end %>
+  <% end %>
+</div>
+<div class="mdl-layout-spacer"></div>

@@ -1,2 +1,42 @@
-<h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
+<div class="mdl-layout-spacer"></div>
+<div class="mdl-cell mdl-cell--6-col">
+  <div class="mdl-card mdl-shadow--2dp shi-search-form--home">
+    <div class="mdl-card__title">
+      <h2 class="mdl-card__title-text">Reservación <%= @booking.num_booking %></h2>
+    </div>
+
+    <div class="mdl-card__supporting-text">
+      <p>Fecha: <%= @flight.date %></p>
+      <p>De <%= @flight.from %> a <%= @flight.to %>.</p>
+      <p>Duración: <%= @flight.duration.to_s %> horas.</p>
+      
+      <p>Pasajeros:</p>
+      <ul class="demo-list-item mdl-list">
+        <% @passengers.each do |passenger| %>
+          <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">
+              <i class="material-icons mdl-list__item-icon">person</i>
+              <%= passenger.name %>
+              <span></span>
+              <span class="mdl-list__item-text-body">
+                
+              </span>
+            </span>
+            <span class="mdl-list__item-secondary-content">
+              
+            </span>
+            
+          </li>
+        <% end %>
+      </ul>
+      <p>Costo total: $<%= @flight.cost * @passengers.length %>.00</p>
+    </div>
+    
+    
+  </div>
+    <button style="margin-top: 1.5em" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+      No olvide imprimir su reservación.
+    </button>
+</div>
+<div class="mdl-layout-spacer"></div>
+

@@ -1,0 +1,38 @@
+@import 'material';
+
+.mdl-layout-title a {
+  text-decoration: none;
+}
+
+.shi-search-form--home {
+  width: 100%;
+}
+
+.shi-search-form--home .mdl-textfield {
+  width: 100%;
+}
+
+.shi-passenger-form {
+  width: 100%;
+  margin-bottom: 2.3em;
+}
+
+.shi-passenger-form .mdl-textfield {
+  width: 100%;
+}
+
+.shi-search-result {
+  width: 100%;
+  
+}
+
+.shi-search-result .mdl-list__item {
+ 
+  font-size: 1.6em;
+}
+
+.shi-search-result .mdl-list__item--three-line .mdl-list__item-text-body {
+ 
+  font-size: .9em;
+  line-height: 1;
+}

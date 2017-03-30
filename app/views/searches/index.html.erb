@@ -2,21 +2,23 @@
 <div class="mdl-cell mdl-cell--8-col">
   <div class="mdl-card mdl-shadow--2dp shi-search-result">
     <div class="mdl-card__title">
-      <h1 class="mdl-card__title-text">Todos los vuelos</h1>
+      <h1 class="mdl-card__title-text">Vuelos encontrados</h1>
     </div>
     <ul class="mdl-list">
-      <% @flights.each do |flight| %>
+      <% @searches.each do |flight| %>
         <li class="mdl-list__item mdl-list__item--three-line">
           <span class="mdl-list__item-primary-content">
             <span>Vuelo <%= flight.num_flight %></span>
             <span class="mdl-list__item-text-body">
               De <%= flight.from %> a <%= flight.to %>
               Fecha: <%= flight.date %>
-              Duración: <%= flight.duration.to_s %> horas. Lugares disponibles: <%= flight.passengers.to_s %>. Costo: <%= flight.cost %>
+              Duración: <%= flight.duration.to_s %>
+              Lugares disponibles: <%= flight.passengers.to_s %>
+              Costo: <%= flight.cost %>
             </span>
           </span>
           <span class="mdl-list__item-secondary-content">
-            <%= link_to "Reservar", flight, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" %>
+            <%= link_to "Reservar", flight, class: "mdl-list__item-secondary-action" %>
           </span>
           
         </li>

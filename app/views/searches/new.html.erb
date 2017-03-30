@@ -1,0 +1,27 @@
+<div class="mdl-layout-spacer"></div>
+<div class="mdl-cell mdl-cell--4-col">
+  <%= form_for @search, method: :get do |f| %>
+    <div class="">
+      <%= f.label :to %>
+      <%= f.text_field :to %>
+    </div>
+
+    <div class="">
+      <%= f.label :from %>
+      <%= f.text_field :from %>
+    </div>
+
+    <div class="">
+      <%= f.label :passengers %>
+      <%= f.text_field :passengers %>
+    </div>
+
+    <div class="">
+      <%= f.label :date %>
+      <%= f.date_field :date %>
+    </div>
+    
+    <%= f.submit "Submit" %>
+  <% end %>
+</div>
+<div class="mdl-layout-spacer"></div>

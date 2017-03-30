@@ -1,0 +1,33 @@
+<div class="mdl-layout-spacer"></div>
+
+<div class="mdl-cell mdl-cell--5-col">
+  <div class="mdl-card mdl-shadow--2dp shi-search-form--home">
+    <div class="mdl-card__title">
+      <h2 class="mdl-card__title-text">Buscar vuelo</h2>
+    </div>
+
+    <%= form_for @search, method: :get do |f| %>
+      <div class="mdl-textfield mdl-js-textfield">
+        <%= f.text_field :to, class: "mdl-textfield__input" %>
+        <%= f.label :to, class: "mdl-textfield__label" %>
+      </div>
+
+      <div class="mdl-textfield mdl-js-textfield">
+        <%= f.text_field :from, class: "mdl-textfield__input" %>
+        <%= f.label :from, class: "mdl-textfield__label" %>
+      </div>
+
+      <div class="mdl-textfield mdl-js-textfield">
+        <%= f.date_field :date, class: "mdl-textfield__input" %> 
+      </div>
+
+      <div class="mdl-card__actions">
+        <%= f.submit "Submit", class: "mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" %>
+      </div>
+    <% end %>
+  </div>
+  <% flash.each do |name, msg| -%>
+    <%= content_tag :div, msg, class: name %>
+  <% end -%>
+</div>
+<div class="mdl-layout-spacer"></div>

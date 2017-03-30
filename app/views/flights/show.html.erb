@@ -1,15 +1,28 @@
-<div class="row">
-  <aside class="col-md-4">
-    <section>
-      <h1>Vuelo <%= @flight.num_flight %></h1>
-    </section>
+<div class="mdl-layout-spacer"></div>
+<div class="mdl-cell mdl-cell--6-col">
+  <div class="mdl-card mdl-shadow--2dp shi-search-form--home">
+    <div class="mdl-card__title">
+      <h2 class="mdl-card__title-text">Vuelo <%= @flight.num_flight %></h2>
+    </div>
 
+    <div class="mdl-card__supporting-text">
+      De <%= @flight.from %> a <%= @flight.to %>
+      Fecha: <%= @flight.date %>
+      Duración: <%= @flight.duration.to_s %>
+      Lugares disponibles: <%= @flight.passengers.to_s %>
+      Costo: <%= @flight.cost %>
+    </div>
+    
     <%= form_tag new_booking_path(@flight.id), :method => 'get' do |f| %>
-    <p>
-      <%= text_field_tag :passengers %>
+      <div class="mdl-textfield mdl-js-textfield">
+        <%= text_field_tag :passengers, nil, class: "mdl-textfield__input" %>
+        <%= label_tag 'Número de pasajeros', nil, class: 'mdl-textfield__label' %>
+      </div>  
       <%= hidden_field :flight_id, @flight.id %>
-      <%= submit_tag "Reserva", class: "btn btn-lg btn-primary" %>
-    </p>
-  <% end %>
-  </aside>
+      <div class="mdl-card__actions">
+        <%= submit_tag "Reserva", class: "mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" %>    
+      </div>
+    <% end %>
+  </div>
 </div>
+<div class="mdl-layout-spacer"></div>
