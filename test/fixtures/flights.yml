@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  num_flight: MyString
+  date: 2017-03-29
+  depart: 2017-03-29 23:20:24
+  from: MyString
+  to: MyString
+  duration: 1
+  cost: 1
+  passengers: 1
+
+two:
+  num_flight: MyString
+  date: 2017-03-29
+  depart: 2017-03-29 23:20:24
+  from: MyString
+  to: MyString
+  duration: 1
+  cost: 1
+  passengers: 1

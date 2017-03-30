@@ -1,0 +1,15 @@
+<div class="row">
+  <aside class="col-md-4">
+    <section>
+      <h1>Vuelo <%= @flight.num_flight %></h1>
+    </section>
+
+    <%= form_tag new_booking_path(@flight.id), :method => 'get' do |f| %>
+    <p>
+      <%= text_field_tag :passengers %>
+      <%= hidden_field :flight_id, @flight.id %>
+      <%= submit_tag "Reserva", class: "btn btn-lg btn-primary" %>
+    </p>
+  <% end %>
+  </aside>
+</div>
