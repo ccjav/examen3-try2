@@ -26,12 +26,16 @@
       </div>
     <% end %>
   <% else %>
+    <p>No hay lugar en el vuelo. Vuelve a intentar con un número menor.</p>
     <%= form_tag new_booking_path(@flight.id), :method => 'get' do |f| %>
-      <p>
-        <%= text_field_tag :passengers %>
-        <%= hidden_field :flight_id, @flight.id %>
-        <%= submit_tag "Reserva", class: "btn btn-lg btn-primary" %>
-      </p>
+      <div class="mdl-textfield mdl-js-textfield">
+        <%= text_field_tag :passengers, nil, class: "mdl-textfield__input" %>
+        <%= label_tag 'Número de pasajeros', nil, class: 'mdl-textfield__label' %>
+      </div>  
+      <%= hidden_field :flight_id, @flight.id %>
+      <div class="mdl-card__actions">
+        <%= submit_tag "Reserva", class: "mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" %>    
+      </div>
     <% end %>
   <% end %>
 </div>
